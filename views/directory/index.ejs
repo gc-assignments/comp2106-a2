@@ -1,0 +1,33 @@
+<%- include ../partials/header.ejs %>
+  <div class="container">
+    <h1>Business Directory</h1>
+    <hr>
+    <div class="row">
+      <% businesses.forEach(function(business) { %>
+        <div class="col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= business.name %></h3>
+            </div>
+            <div class="panel-body row">
+              <dl class="col-sm-5">
+                <dt>Owner</dt>
+                <dd><%= business.owner %></dd>
+                <dt>Website</dt>
+                <dd><%= business.website %></dd>
+                <dt>Email</dt>
+                <dd><%= business.email %></dd>
+                <dt>Phone</dt>
+                <dd><%= business.phone %></dd>
+              </dl>
+              <div class="col-sm-7">
+                <h4 class="about-biz">Description</h4>
+                <p><%= shorten(business.description, 140) %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div> <!-- directory row -->
+  </div> <!-- container -->
+<%- include ../partials/footer.ejs %>

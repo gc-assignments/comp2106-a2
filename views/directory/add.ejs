@@ -1,0 +1,40 @@
+<%- include ../partials/header.ejs %>
+  <div class="container">
+    <h1>Adding a Business</h1>
+    <hr>
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <a href="/directory/edit" class="btn btn-warning">Cancel</a>
+        <br>
+        <br>
+        <form action="/directory/create" method="post">
+          <div class="form-group">
+            <label for="name">*Name</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Business name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">*Phone</label>
+            <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone number" required>
+          </div>
+          <div class="form-group">
+            <label for="owner">*Owner</label>
+            <input type="text" class="form-control" name="owner" id="owner" placeholder="Owner's name" required>
+          </div>
+          <div class="form-group">
+            <label for="website">Website</label>
+            <input type="url" class="form-control" name="website" id="website" placeholder="Business website">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email address">
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" rows="3" name="description" id="description"></textarea>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div> <!-- container -->
+<%- include ../partials/footer.ejs %>

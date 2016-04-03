@@ -1,0 +1,7 @@
+BusinessSchema
+- name
+- description
+- website
+- phone
+- email
+- owner

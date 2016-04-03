@@ -1,8 +1,26 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* ==================== Home ==================== */
+
+.landing {
+  background-image: url("/images/landing.jpg");
+  color: #fff;
+  min-height: 640px;
+}
+.landing>h1 {
+  margin-bottom: 60px;
+}
+.landing>p>a.btn {
+  margin-top: 60px;
 }
 
-a {
-  color: #00B7FF;
+
+/* ==================== Directory ==================== */
+
+.about-biz {
+  font-weight: 500;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
