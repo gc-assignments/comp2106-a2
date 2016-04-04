@@ -1,18 +1,35 @@
 require('dotenv').config();
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
+var express      = require('express');
+var path         = require('path');
+var favicon      = require('serve-favicon');
+var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var DB_URL = require('./config/db').url;
+var session      = require('express-session');
+var bodyParser   = require('body-parser');
+var mongoose     = require('mongoose');
+var DB_URL       = require('./config/db').url;
+var passport     = require('passport');
+var User         = require('./models/user');
 
-var routes = require('./routes/index');
-var directory = require('./routes/directory');
-var users = require('./routes/users');
+var routes       = require('./routes/index');
+var directory    = require('./routes/directory');
+var users        = require('./routes/users');
 
-var app = express();
+var app          = express();
+
+// passport config section
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: true,
+  saveUninitialized: false
+}));
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // connect to database
 mongoose.connect(DB_URL);

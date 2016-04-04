@@ -31,9 +31,18 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="#">Login</a>
-            </li>
+            <% if (authenticated) { %>
+              <li>
+                <a href="/users/logout">Logout</a>
+              </li>
+            <% } else { %>
+              <li class="<%= is_active('login') %>">
+                <a href="/users/login">Login</a>
+              </li>
+              <li class="<%= is_active('signup') %>">
+                <a href="/users/signup">Sign Up</a>
+              </li>
+            <% } %>
           </ul>
         </div>
       </div>
