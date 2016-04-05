@@ -27,6 +27,18 @@ router.get('/', function(req, res) {
   }
 });
 
+// BONUS FEATURE JSON API
+// go to /directory/json
+router.get('/json', function(req, res) {
+  Business.find(function(err, businesses) {
+    if (err) {
+      res.status(500).json({ errors: err });
+    } else {
+      res.json({ businesses: businesses });
+    }
+  });
+});
+
 // authentication middleware to make the routes below private
 router.use(function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
